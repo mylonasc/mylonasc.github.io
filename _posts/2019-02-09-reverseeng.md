@@ -27,7 +27,7 @@ Now here is the thing: the max FPS of my cell phone camera is 240fps. This gives
   <source src="/img/video_remote.mp4" type="video/mp4">
 </video>
 
-Both of these approaches can work but they are multi-step complicated approaches (I'm more bored of passing the videos from the cellphone to the PC honestly). Also I wasn't sure how easy it would be to get the timing of the bursts right (also the carrier frequency has to be be entirely guessed). I'm looking for ghetto quick and dirty solutions since I have a weekend to finish that! And accurate timing at the same time. 
+Both of these approaches can work but they are multi-step complicated approaches (I'm more bored of passing the videos from the cellphone to the PC honestly). Also I wasn't sure how easy it would be to get the timing of the bursts right (also the carrier frequency has to be be entirely guessed). I'm looking for ghetto quick and dirty solutions since I have a weekend to finish that! 
 
 
 
