@@ -13,20 +13,22 @@ So I creatively wasted a whole weekend to reverse engineer the remote control an
 
 ## Recording and Analyzing the signal without an oscilloscope
 
-So first I figured out how the the IR remote works. [This post](https://www.sbprojects.net/knowledge/ir/sirc.php) was really helpful. Now that I knew what to look for in the flashing led, I could start thinking how to record it. I could put together a simple amplifier circuit, but I didn't have an IR receiver module laying around. I had only an IR LED and some transistors but I was to sort out what exactly I needed as a circuit and if it would work out (probably it would) so I took the easy way and started thinking of alternatives!
+So first I figured out how the the IR remote works. [This post](https://www.sbprojects.net/knowledge/ir/sirc.php) was really helpful. Now that I knew what to look for in the flashing led, I could start thinking how to record it. I could put together a simple amplifier circuit, but I didn't have an IR receiver module laying around. I had only an IR LED and some transistors but I was not so keen to sort out what exactly I needed as a circuit. So I took the easy way and started thinking of alternatives! 
 
-Bottom line is: there is a "command start" part with a long pulse burst of, say, 4 ms and then a series of bits, varying with the complexity of the device and the remote. The time appointed for each bit is constant and (around) 1.2 milliseconds. The involved receiver circuits are surprisingly forgiving on timing as I learned later on (they can manage some miss-timings for the transmitted bits).
+## The transmitted signal
+Bottom line is: there is a "command start" part with a long pulse burst of, say, 4 ms and then a series of bits, varying with the complexity of the device and the remote. So a "1" is a 0.6 milliseconds pulse followed by a 0.6ms off and "0" is a 0.6ms burst in the carrier frequency followed by 0.6ms off (see also the picture in the following). The involved receiver circuits are surprisingly forgiving on timing as I figured out later on (they can manage some miss-timings for the transmitted bits). Especially the carrier frequency was not a huge issue to capture. 
 
 ### Sensing with a camera:
 Use a cellphone camera! Digital cameras are very sensitive to IR light and some of them have pretty decent frame rates (at least that's what I thought). So here is the deal: I record a video in slow motion (fast shutter) with the cellphone and then I pass the video to my PC and extract the flashing patterns to implement them in arduino afterwards. 
 
-Now here is the thing: the max FPS of my cell phone camera is 240fps. This gives me a 4Hz sampling frequency in time. How can I get to the 2ms resolution? By [Nyquist theorem]( https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) we are doomed! However, since I know the basis my signal is represented, (I know more-or-less how the signals look like in time) I can get away by doing sparse regression. That's the theory of [compressed sensing](https://en.wikipedia.org/wiki/Compressed_sensing) at play! I could even be messy and try some [eulerian video magnification](http://people.csail.mit.edu/mrub/vidmag/) on some proper frequency that will allow me to discriminate the 1s and 0s of the signal! 
-
-Both of these approaches can work but they are multi-step complicated approaches. Also I wasn't sure how easy it would be to get the timing of the bursts right (also the carrier frequency should be entirely guessed). I'm looking for ghetto quick and dirty solutions since I have a weekend to finish that! And accurate timing at the same time.
+Now here is the thing: the max FPS of my cell phone camera is 240fps. This gives me a 4ms sampling period in time. How can I get to the 2ms resolution? By [Nyquist theorem]( https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) we are doomed! However, since I know the basis my signal is represented, (I know more-or-less how the signals look like in time) I can get away by doing sparse regression. That's the theory of [compressed sensing](https://en.wikipedia.org/wiki/Compressed_sensing)! I could even be messy and try some [eulerian video magnification](http://people.csail.mit.edu/mrub/vidmag/) on some proper frequency that will allow me to discriminate the 1s and 0s of the signal! 
 
 <video width="720" height="480" controls="controls">
   <source src="/img/video_remote.mp4" type="video/mp4">
 </video>
+
+Both of these approaches can work but they are multi-step complicated approaches (I'm more bored of passing the videos from the cellphone to the PC honestly). Also I wasn't sure how easy it would be to get the timing of the bursts right (also the carrier frequency has to be be entirely guessed). I'm looking for ghetto quick and dirty solutions since I have a weekend to finish that! And accurate timing at the same time. 
+
 
 
 
