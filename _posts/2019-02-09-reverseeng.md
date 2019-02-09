@@ -24,28 +24,35 @@ Now here is the thing: the max FPS of my cell phone camera is 240fps. This gives
 
 Both of these approaches can work but they are multi-step complicated approaches. Also I wasn't sure how easy it would be to get the timing of the bursts right (also the carrier frequency should be entirely guessed). I'm looking for ghetto quick and dirty solutions since I have a weekend to finish that! And accurate timing at the same time.
 
+<video width="720" height="480" controls="controls">
+  <source src="/img/video_remote.mp4" type="video/mp4">
+</video>
+
 
 
 ### Sensing with audio input
 
 An ultra simple way to record a 44khz electrical signal is simply using the microphone input of your PC! Even if you have a single jack (no dedicated mic input) you can still record audio with a male-male AUX audio cable. Here is the trick:
 
-[jack with mic and jack without mic](/img/jacks.jpg)
+![jack with mic and jack without mic](/img/jacks.jpg)
 
 In the picture above you see a "jack" cable with a mic io and another one without one. The difference is the first contact part - that's the mic part! In order to "fake" a microphone to your sound card, you need to put the regular cable partially in your PCs audio IO port! Basically you want the "top" part (which is ground) to contact where it should contact, but the last part of the cable to contact on the part that normally the microphone input would contact. 
 
 So basically I wanted to sense directly the electrical signal out of the infra-red LED:
-[LED soldered - connected with crocodile clips (not shown) to the audio jack](/img/led_of_remote.jpg)
+![LED soldered - connected with crocodile clips (not shown) to the audio jack](/img/led_of_remote.jpg)
 
 Now I could record directly the signal that the led is supposed to transmit! (and maybe some phase distortion from high pass filters in my sound card or sth but this turned out not to be a huge problem). Every time I press a button, a signal that I know more-or-less its parts is going to be emmited from the LED. So now I can simply use a recording software to time my signals! I used my all favorite Audacity:
 
-[Audacity: Matching arduino pulses with remote pulses](/img/audacity_signals.jpg)
+![Audacity: Matching arduino pulses with remote pulses](/img/audacity_signals.jpg)
 
 In the image above you also see the arduino uno I used for serial communication and pulsing the LED. Since it was easier for development (and because I didn't have a decent IR led laying around) I used the remote's LED for testing my arduino PWM code. One has to use one of the pulse width modulation (PWM) capable output pins on the arduino for hooking the cables connected to the remote's IR led. 
 
 So now I had the exact signals to pulse the LED with and control my stereo! (at least in principle). The final issue to be dealt with was the innacurate timing of the PWM output. Although the receiver was pretty forgiving (no stats on that - sorry!) getting the timings right from the arduino side was a pain. I was using the `delaymicroseconds()` and a simple array for the different commands. The arduino was getting serial signlals (I also used [this post](https://playground.arduino.cc/Interfacing/LinuxTTY) to pass directly from bash the commands I wanted!
 So here is the final result:
-[Final result](/img/video_remote.mp4)
+
+<video width="720" height="480" controls="controls">
+  <source src="/img/ir_remote_video.mp4" type="video/mp4">
+</video>
 
 Bottom line is that I got bored of it in one day - maybe I'll revisit it with this *compressive sensing* idea for getting the signal out of a time sub-sampled video.
 
