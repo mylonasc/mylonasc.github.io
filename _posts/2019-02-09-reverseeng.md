@@ -7,7 +7,7 @@ tags: [arduino, reverse engineering, IR protocols, remote control]
 ---
 
 # The project
-Someone on my building was gaving away an old sony stereo (with some relatively decent speakers) together with its remote control. So now I could listen to FM radio and my old CDs! However there was a problem - I had to take my hands off the keyboard to press the button to change songs or stations! That's no good of course! 
+Someone on my building was giving away an old sony stereo (with some relatively decent speakers) together with its remote control. So now I could listen to FM radio and my old CDs! However there was a problem - I had to take my hands off the keyboard to press the button to change songs or stations! That's no good of course! 
 
 So I creatively wasted a whole weekend to reverse engineer the remote control and use an arduino to control the stereo ;). 
 
