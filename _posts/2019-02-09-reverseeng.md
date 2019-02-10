@@ -27,7 +27,23 @@ Now here is the thing: the max FPS of my cell phone camera is 240fps. This gives
   <source src="/img/video_remote.mp4" type="video/mp4">
 </video>
 
+
 Both of these approaches can work but they are multi-step complicated approaches (I'm more bored of passing the videos from the cellphone to the PC honestly). Also I wasn't sure how easy it would be to get the timing of the bursts right (also the carrier frequency has to be be entirely guessed). I'm looking for ghetto quick and dirty solutions since I have a weekend to finish that! 
+
+### Short sidenote/update on camera based approach:
+Actually after writing this post, I realized that if I set the shutterspeed very high on my samsung S7, I can clearly see the binary code pop out! Here is a picture from the sony remote I reverse engineered in the following:
+
+![sony remote](/img/sonyremote.jpg)
+
+And a video showing the patterns from an optoma remote (the protocol is different and the pattern containing all the data unfortunately non-repeating):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s1sUocGfjmE" frameborder="0" allowfullscreen></iframe>
+
+Play it in HD - the borders of the patterns are pretty crisp!
+
+Why this works is much more interesting! It has to do with the fact that the scanning of the sensor is in reality much faster than the "framerate" of the videos. There are two large families of sensors: CCD and CMOS - samsung S7 supposedly has a CMOS which means that every pixel value is amplified on the spot and then serially sent for storage etc. As described in [this very nice video](https://www.youtube.com/watch?v=9vgtJJ2wwMA) some rolling artifacts should have been there. What we observe looks like there is a shift register serving the large dimension of the screen, as if the sensor was a CCD sensor! What I think is happening is that the **do** have a shift register somewhere dealing with the large dimension to deal better with rolling artifacts or for convenient upstream processing. In any case, **finding binary codes from cellphone works**!
+
+
 
 
 
@@ -58,7 +74,10 @@ So here is the final result:
 
 Bottom line is that I got bored of it in one day - maybe I'll revisit it with this *compressive sensing* idea for getting the signal out of a time sub-sampled video.
 
+# More on the code
+For producing the carrier frequency you can either use a dedicated circuit with an oscillator or do it by software and rely on accurate timing and a fast dedicated micro-controller. I went with the latter - this is a technique called [bit-banging](https://en.wikipedia.org/wiki/Bit_banging). 
 
+The problem with bit-banging is that the timing of the micro-controller is not going to be so reliable (the micro-controller has to do other stuff as well). The timing issues were solved by trial and error: I was running the same code with slighly different delays until the signals in Audacity were matching for 1s and 0s. 
 
 
 
