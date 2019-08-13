@@ -1,8 +1,10 @@
 {% if include.css.sri %}
   <link href="{{ include.css.href }}" rel="stylesheet" integrity="{{ include.css.sri }}" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css" />
 {% elsif include.css.href %}
   <link rel="stylesheet" href="{{ include.css.href }}" />
+  <link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css" />
 {% else %}
   <link rel="stylesheet" href="{{ include.css }}" />
-{% endif %}
   <link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css" />
+{% endif %}
