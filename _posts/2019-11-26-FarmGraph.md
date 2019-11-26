@@ -40,21 +40,21 @@ only parameters entering the network are special features encoding
 the turbine relative position, and the turbine rated power. 
 I also use the encode/process/decode approach advocated in the DeepMind paper.
 
-###Generalization to unseen farm configurations
-What got me excited about graph neural networks in the first place, is the potential of generalizing to different farm configurations and learning physical laws in a data-driven manner. The farm-level effects (wakes) are not trivial to model accurately computationally. High-fidelity models need dedicated super-computers and medium fidelity, make relatively coarse empirical approximations (Dynamic Wake meandering) which may sacrifice accuracy in the representation of the actual aero-dynamic loads. The goal here would be to be able to learn wake models directly from operational data and turbine properties of several farms and generalize in arbitrary configurations. The main direct applications of this are
+### Generalization to unseen farm configurations
+What I find exciting about graph neural networks, is the potential of generalizing to different farm configurations and learning physical laws in a data-driven manner. General Artificial Intelligence, the reason why they were invented, for me is a *nice-to-have* side-effect when it happens! The farm-level effects (wakes) are not trivial to model accurately with explicit computational models. High-fidelity models need dedicated super-computers and medium fidelity, make relatively coarse empirical approximations (Dynamic Wake Meandering method) which may sacrifice accuracy in the representation of the actual aero-dynamic loads. The goal here would be to be able to learn wake models directly from operational data and turbine properties of several farms and generalize in arbitrary configurations. The main direct applications of such models are:
 * prediction of farm performance, 
 * farm-level control, and
 * farm-layout optimization
 
 Here are some preliminary results on the trained graph-network on a grid-layout farm. Keep in mind that the network was trained on a completely different layout.
-![Wake effects on a 5x5 grid layout. The wake effects are correctly larger in the internal part of the farm.](fictitious5x5.png)
+![Wake effects on a 5x5 grid layout. The wake effects are correctly larger in the internal part of the farm.](/img/fictitious5x5.png)
 
 
 Going bigger...
-![Wake effects on a 10x10 grid layout farm.](fictitious10x10.png)
+![Wake effects on a 10x10 grid layout farm.](/img/fictitious10x10.png)
 
 and bigger...
-![Wake effects on a 10x10 grid layout farm.](fictitious10x10.png)
+![Wake effects on a 10x10 grid layout farm.](/img/fictitious10x10.png)
 
 ### Conclusion/Future work
 As a conclusion, apparently graph neural networks show great potential as a modeling tool for wind farms. Although this idea has been [explored before](https://www.sciencedirect.com/science/article/abs/pii/S0360544219315555), I think it may have a lot to offer. Especially if combined with other new developments... 
