@@ -29,7 +29,7 @@ I was mostly inspired (and educated about the project) by [Great Scott](https://
 * ESP32 to control the LEDs and interface with Wifi.
 
 ### Tips:
-you might have to put some supply in parallel - the LEDs have quite some resistance and long chains may end up having 
+you might have to put some supply in parallel - the LEDs have quite some resistance and leds closer to the end of long chains may end up with lower current and innacurate/faded colors.
 
 In my [github repo]( https://github.com/mylonasc/esp32wirelessledmatrix) you can find a version of the code I used plus a python script I made to control it.
 
