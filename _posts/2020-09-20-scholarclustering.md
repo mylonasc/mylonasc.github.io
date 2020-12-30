@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Literature clustering for google scholar articles and graph navigation using pre-trained transformers and dimensionality reduction
+title: Literature Graph Navigation using Pre-trained Transformers 
 subtitle: 
 bigimg: /img/cables.jpg
 tags: [arduino, reverse engineering, IR protocols, remote control]
@@ -41,14 +41,3 @@ Here is a [live version](https://galerkin.hopto.org/authors_visualization/) of t
 
 <iframe src="https://galerkin.hopto.org/authors_visualization/" width="800" height="640" allowfullscreen="allowfullscreen"></iframe>
 
-
-
-
-
-You can access the 
-
-### Distances of representations 
-I used the pre-trained huggingface transformers to compute embeddings for the gathered abstracts. S
-
-# Idea
-# Implementation
