@@ -7,8 +7,8 @@ tags: [arduino, reverse engineering, IR protocols, remote control]
 ---
 
 # The project(s)
-I came across an infra-red (IR) controlled stereo and I wanted to make it remote controlled from my PC. Although apparently this is totally superfluous, it is a useful project since IR is everywhere. 
-later that I wanted to control a robot vacuum cleaner from my PC the things I learned from this project turned out to be quite useful! As a matter of fact I chose a cheaper robot vacuum cleaner since I knew I can easily control it with IR from my PC. This is a short account of where I started and where this project took me. Using a cheapo ESP32-CAM module which has a camera and can also run a small server I was able to run my eufy vacuum from wifi.
+I came across an infra-red (IR) controlled stereo and I wanted to make it remote controlled from my PC. Although apparently this is totally unnecessary, it is a useful project since IR is everywhere. 
+Later that I wanted to control a robot vacuum cleaner from my PC the things I learned from this project turned out to be quite useful! As a matter of fact I chose a cheaper robot vacuum cleaner since I knew I can easily control it with IR from my PC. This is a short account of where I started and where this project took me. Using a cheap ESP32-CAM module which has a camera and can also run a small server I was able to run my eufy vacuum from wifi.
 
 
 ## Recording and Analyzing the signal without an oscilloscope
@@ -19,9 +19,7 @@ First I had to figure out how the IR remote works. [This post](https://www.sbpro
 Bottom line is that there is a "command start" part with a long pulse burst of, say, 4 ms and then a series of bits, varying with the complexity of the device and the remote. So a "1" is a 0.6 milliseconds pulse followed by a 0.6ms off and "0" is a 0.6ms burst in the carrier frequency followed by 0.6ms off (see also the picture in the following). The receiver circuits are surprisingly forgiving on timing as I figured out later on (they can manage some miss-timings for the transmitted bits). Especially the carrier frequency was not a huge issue to capture and reproduce exactly. This is a simple PSK protocol called [Manchester coding](https://en.wikipedia.org/wiki/Manchester_code). Short note: why wouldn't one encode more info on the amplitude of the signal, you may ask? Later excursions to radio signals using my software defined radio dongle, and reverse engineering RC plane transmitters took me to the word of [quadrature amplitude modulation (QAM)](https://en.wikipedia.org/wiki/Quadrature_amplitude_modulation) which is more-or-less what all high-throughput modern radio uses (plus some [error correcting tricks](https://www.youtube.com/watch?v=Lto-ajuqW3w&list=PLvc8eb5AdU4fPkWSJVLip-g9wcSO6MhAC&ab_channel=Computerphile)). 
 
 ### Sensing with a cellphone camera:
-Use a cellphone camera! Digital cameras are very sensitive to IR light and some of them have pretty decent frame rates (at least that's what I thought). So here is the deal: I record a video in slow motion (fast shutter) with the cellphone and then I pass the video to my PC and extract the flashing patterns to implement them in arduino afterwards. 
-
-Now here is the thing: the max FPS of my cell phone camera is 240fps. This gives me a 4ms sampling period in time. How can I get to the 2ms resolution? By [Nyquist theorem]( https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) we are doomed! However, since I know the basis my signal is represented, (I know more-or-less how the signals look like in time) I can get away by doing sparse regression. That's the theory of [compressed sensing](https://en.wikipedia.org/wiki/Compressed_sensing)! I could even be messy and try some [eulerian video magnification](http://people.csail.mit.edu/mrub/vidmag/) on some proper frequency that will allow me to discriminate the 1s and 0s of the signal! 
+Digital cameras are very sensitive to IR light and some of them have pretty decent frame rates (at least that's what I thought). So here is the deal: I record a video in slow motion (fast shutter) with the cellphone and then I pass the video to my PC and extract the flashing patterns to implement them in arduino afterwards. 
 
 <video width="720" height="480" controls="controls">
   <source src="/img/video_remote.mp4" type="video/mp4">
@@ -31,7 +29,7 @@ Now here is the thing: the max FPS of my cell phone camera is 240fps. This gives
 Both of these approaches can work but they are multi-step complicated approaches (I'm more bored of passing the videos from the cellphone to the PC honestly). Also I wasn't sure how easy it would be to get the timing of the bursts right (also the carrier frequency has to be be entirely guessed). I'm looking for ghetto quick and dirty solutions since I have a weekend to finish that! 
 
 ### Short sidenote/update on camera based approach:
-Actually after writing this post, I realized that if I set the shutterspeed very high on my samsung S7, I can clearly see the binary code pop out! Here is a picture from the sony remote I reverse engineered in the following:
+Actually after writing this post, I realized that if I set the shutterspeed very high on my samsung S7, I can clearly see the binary code pop out! Here is a picture from the sony remote I managed to get signals such as the following one
 
 ![sony remote](/img/sonyremote.jpg)
 
@@ -39,15 +37,15 @@ And a video showing the patterns from an optoma remote (the protocol is differen
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s1sUocGfjmE" frameborder="0" allowfullscreen></iframe>
 
-Play it in HD - the borders of the patterns are pretty crisp!
+the borders of the patterns are quite crisp.
 
-Why this works is much more interesting! It has to do with the fact that the scanning of the sensor is in reality much faster than the "framerate" of the videos. There are two large families of sensors: CCD and CMOS - samsung S7 supposedly has a CMOS which means that every pixel value is amplified on the spot and then serially sent for storage etc. As described in [this very nice video](https://www.youtube.com/watch?v=9vgtJJ2wwMA) some rolling artifacts should have been there. What we observe looks like there is a shift register serving the large dimension of the screen, as if the sensor was a CCD sensor! What I think is happening is that the **do** have a shift register somewhere dealing with the large dimension to deal better with rolling artifacts or for convenient upstream processing. In any case, **finding binary codes from cellphone works**!
+Why this works is much more interesting, considering that the framerate of the camera is much slower than required to capture the signal. It has to do with the fact that the scanning of the sensor is in reality much faster than the "framerate" of the videos. There are two large families of sensors: CCD and CMOS - samsung S7 supposedly has a CMOS which means that every pixel value is amplified on the spot and then serially sent for storage etc. As described in [this very nice video](https://www.youtube.com/watch?v=9vgtJJ2wwMA) some rolling artifacts should have been there. What we observe looks like there is a shift register serving the large dimension of the screen, as if the sensor was a CCD sensor. What I think is happening is that the **do** have a shift register somewhere dealing with the large dimension to deal better with rolling artifacts or for convenient upstream processing. Or they do some upstream processing to deal with rolling artefacts. In any case, **finding binary codes from cellphone may work**.
 
-#### Update:
+#### Update (2):
 When I started working on the vacuum cleaner project, I still haven't bought the IR receivers yet. 
 I gave the high-speed IR sensing idea another try. I wanted to do some simple thresholding  for the purple light of IR that is sensed from the camera. 
 The idea was to record a video with multiple pressings of the button, align the incomplete signals and then threshold to get the actual raw IR signal. 
-This worked sort-of ok, but with a small additional caveat: The LED light does not reach the whole screen with the same intensity. In the following a plot of the mean pixel intensity is shown
+This worked sort-of ok, but with some small additional caveats I detail bellow. Firstly, the LED light does not reach the whole screen with the same intensity. In the following a plot of the mean pixel intensity is shown
 
 ![pixintens](/img/pixintens.png)
 
@@ -58,10 +56,11 @@ since the missing frames had the same length and the preample "on" part was quit
 
 At that point, I was hoping that I can simply average or sum the aligned signals and get the final raw IR signal.
 However, a different signal is sent every time a button is pressed for the on-off command. This is the first command I needed to rev-eng since otherwise I would need to have the
- vacuum running around while trying to send a signal to it with the microcontroller-mounted IR LED. Here is a plot of the mixed signal: 
+ vacuum running around while trying to send a signal to it with the microcontroller-mounted IR LED. Here is a plot of some aligned gappy signals that are either on or off commands. 
+I also figured out a simple way to sort the gaps for easier visual inspection. 
 ![mixsig](/img/camera_mixed_signals.png)
 
-It turns out, that fortunately it is really simple to separate these signals, especially if one considers that they are strictly positive and there are two of them! (the on and off command). 
+Fortunately it is really simple to separate these signals, especially if one considers that they are strictly positive and there are two of them! (the on and off command). 
 I first tried some hand-designed tricks (like figuring out visually what bit belongs to just one signal etc) but decided to put some simple ML to good use to do this more effectively.
 This can be done by using [non-negative matrix factorization](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html). 
 The problem is cast to finding two positive components that explain the signal, and in turn to a matrix factorization problem. The algorithm should discover the two signals (the on and off command).
@@ -74,7 +73,7 @@ The x-axis is labeled pixel/time because at this point I didn't know how fast ex
 
 ### Sensing with audio input
 
-An ultra simple way to record a 44khz electrical signal is simply using the microphone input of your PC. Even if you have a single jack (no dedicated mic input) you can still record audio with a male-male AUX audio cable. Here is the trick:
+An simple way to record a 44khz electrical signal is simply using the microphone input of your PC. Even if you have a single jack (no dedicated mic input) you can still record audio with a male-male AUX audio cable. Here is the trick:
 
 ![jack with mic and jack without mic](/img/jacks.jpg)
 
@@ -83,13 +82,13 @@ In the picture above you see a "jack" cable with a mic io and another one withou
 I wanted to sense directly the electrical signal out of the infra-red LED:
 ![LED soldered - connected with crocodile clips (not shown) to the audio jack](/img/led_of_remote.jpg)
 
-Now I could record directly the signal that the led is supposed to transmit (and maybe some phase distortion from high pass filters in my sound card or something but this turned out not to be a huge problem). Every time I press a button, a signal that I know more-or-less its parts is going to be emitted from the LED. So now I can simply use a recording software to time my signals! I used my all favorite Audacity:
+Now I could record directly the signal that the led is supposed to transmit (and maybe some phase distortion from high pass filters in my sound card or something but this turned out not to be a huge problem). Every time I press a button, a signal that I know more-or-less its parts is going to be emitted from the LED. So now I can simply use a recording software to time the signals. I simply used Audacity for that
 
 ![Audacity: Matching arduino pulses with remote pulses](/img/audacity_signals.jpg)
 
 In the image above you also see the arduino uno I used for serial communication and pulsing the LED. Since it was easier for development (and because I didn't have a decent IR led laying around) I used the remote's LED for testing my arduino PWM code. One has to use one of the pulse width modulation (PWM) capable output pins on the arduino for hooking the cables connected to the remote's IR led. The same is true when using other micro-controllers (like the wifi-enabled ESP32 which I used for the vacuum cleaner).
 
-Now I had the exact signals to pulse the LED with and control the stereo (at least in principle). The final issue to be dealt with was the inaccurate timing of the PWM output. Although the receiver was pretty forgiving (no stats on that) getting the timings right from the arduino side was a pain. I was using the `delaymicroseconds()` and a simple array for the different commands. The arduino was getting serial signals (I also used [this post](https://playground.arduino.cc/Interfacing/LinuxTTY) to pass directly from bash the commands I wanted.
+Now I had the exact signals to pulse the LED with and control the stereo (at least in principle). The final issue to be dealt with was the inaccurate timing of the PWM output. Although the receiver was pretty forgiving (no stats on that) getting the timings right from the arduino side was a pain. I was using the `delaymicroseconds()` and a simple array for the different commands. The arduino was getting serial signals. I also used [this post](https://playground.arduino.cc/Interfacing/LinuxTTY) to pass directly from bash the commands I wanted.
 So here is the final result using the stereo:
 
 <video width="720" height="480" controls="controls">
@@ -109,9 +108,10 @@ Here is a video of the IR controller in action!
 </video>
 
 The end goal of this project is to also localize the vacuum (for instance with some simple monocular visual SLAM) and control it from the PC. This is normally ported together with more 
-expensive vacuum cleaners but I think it's not difficult to set it up. The algorithm should work offline from the PC initially (since I can stream the frames of the camera.
-Other ways I thought about for localizing the vacuum were audio, floor vibrations and by checking the signal strength of surrounding wifis. For the audio approach I would 
+expensive vacuum cleaners but I think it's not difficult to set it up. The algorithm should work offline from the PC initially since I can stream the frames of the ESP-mounted camera.
+Other ways I thought about for localizing the vacuum were audio, floor vibrations and by checking the signal strength of surrounding wifi access points. For the audio approach I would 
 probably I would need 2-3 mics around the house and some training (the vacuum is noisy so it is audible from the whole house and imperceptible sound distortions due to the layout should help with localization.)
+
 
 
 
