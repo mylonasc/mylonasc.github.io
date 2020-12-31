@@ -20,26 +20,16 @@ In the context of this work,
 * Turbine-turbine and intra-turbine interactions are edges
 * global parameters are weather conditions.
 
-In an initial attempt, a manual pre-selection of properties and variables describing these graph parameters were made. The data from a wind-farm of 111 turbines was used for training a graph neural network (full GraphNet). The farm I studied spans 20km by 10km radius. Therefore some data cherry picking was necessary in order for the variation of operational and global environmental parameters along the whole farm to be small. In the future I want to see if I can capture the underlying wind field as a latent effect. That could be possible through modeling the wind field, for instance, on a grid or a mesh 
-superimposed on the farm, with dynamics learned directly from data. The work on [Attentive Neural Processes](https://arxiv.org/abs/1901.05761), which are loosely related 
-to Gaussian Processes is related to this idea. Computation on unstructured meshes can be  
-facilitated with GraphNets ([Learning Mesh-Based Simulation with Graph Networks](https://arxiv.org/abs/2010.03409) and in particular [Graph Element Networks](https://arxiv.org/abs/1904.09019) are contain some good ideas on the details on how to achieve this).
+In an initial attempt, a manual pre-selection of properties and variables describing these graph parameters were made. The data from a wind-farm of 111 turbines was used for training a graph neural network (full GraphNet). The farm I studied spans 20km by 10km radius. Therefore some data cherry picking was necessary in order for the variation of operational and global environmental parameters along the whole farm to be small. In the future I want to see if I can capture the underlying wind field as a latent effect. That could be possible through modeling the wind field, for instance, on a grid or a mesh superimposed on the farm, with dynamics learned directly from data. The work on [Attentive Neural Processes](https://arxiv.org/abs/1901.05761), which are loosely related to Gaussian Processes is related to this idea. Computation on unstructured meshes can be facilitated with GraphNets ([Learning Mesh-Based Simulation with Graph Networks](https://arxiv.org/abs/2010.03409) and in particular [Graph Element Networks](https://arxiv.org/abs/1904.09019) are contain some good ideas on the details on how to achieve this).
 
 The first results seemed quite promising
+
 ![Actual and predicted farm state (power and turbine orientation) for all turbines, given only global turbulence, wind speed and wind orientation. The arrows represent the wind inflow orientation at each turbine.](/img/power_on_farm_lowTi.png)
 
 ![same as previous plot for higher windspeed](/img/power_on_farm_lowTi_HighWsp.png)
 
-Although this part may not seem very convincing, one needs to keep in 
-mind that the global operational characteristics are parameterized by 
-3 values and we ask of the network to predict how much all turbines 
-in a 20km by 10km area produce! The weather conditions are of 
-course not expected to be the same all over the farm and at 
-the moment I take no measures to take that into account. The 
-only parameters entering the network are special features encoding 
-the turbine relative position, and the turbine rated power. 
-I also use the encode/process/decode approach used in the DeepMind paper and small ReLU networks.
-The GraphNets were fast to train and converged reliably.
+Although this part may not seem very convincing, one needs to keep in mind that the global operational characteristics are parameterized by 3 values and we ask of the network to predict the operational statistics of all turbines in a 20km by 10km area will operate. The weather conditions are of course not expected to be the same all over the farm and at the moment I take no measures to take that into account. The only parameters entering the network are special features encoding the turbine relative position, and the turbine rated power. 
+The encode/process/decode approach was used is n the DeepMind paper and small ReLU networks. The GraphNets were fast to train and converged reliably.
 
 ### Generalization to unseen farm configurations
 I find GraphNets exciting, also due to the potential of generalizing to different farm configurations and learning physical laws in a data-driven manner. 
@@ -53,18 +43,16 @@ Here are some preliminary results on the trained graph-network on a grid-layout 
 ![Wake effects on a 5x5 grid layout. The wake effects are correctly larger in the internal part of the farm.](/img/fictitious5x5.png)
 
 
-Note the lighter region denoting higher power production. The upwind turbines (the ones on the sides that are facing the wind as it reaches the farm) produce more. The interesting 
-feature is that this was learned directly by the model which had only seen the large 111-turbine farm. The interesting feature of GraphNet is that one may generalize to larger unseen 
-configurations with no extra training cost. A larger 10x10 farm is shown in the following
+Note the lighter region denoting higher power production. The upwind turbines (the ones on the sides that are facing the wind as it reaches the farm) produce more. This was learned directly by the model which had only seen the large 111-turbine farm. The interesting feature of GraphNet is that one may generalize to larger unseen 
+configurations with no extra training cost. A larger 10x10 farm is shown in the following, as well as a 20x20 farm.
+
 ![Wake effects on a 10x10 grid layout farm.](/img/fictitious10x10.png)
 
-and a 20x20 farm:
 ![Wake effects on a 20x20 grid layout farm.](/img/fictitious20x20.png)
 
-the same effect persists which is encouraging as to the capacity of GraphNets to capture physical laws.
+the same effect persists which is encouraging as to the capacity of GraphNets to capture physical laws. Finally, it is known that after some distance the wake-related production deficits are not observed due to kinetic energy transfered from wind over the farm. This is what is probably what is observed in the final plot, although more examples should be investigated.
 
 ### Conclusion/Future work
-As a conclusion, graph neural networks show great potential as a modeling tool for wind farms. Further interesting extensions would include a more careful account of 
-uncertainty and [Bayesian deep neural networks](https://arxiv.org/abs/1506.02557) for learning the interaction functions with the associated uncertainty. (**update:** In [Bayesian graph neural networks for strain-based crack localization](https://arxiv.org/abs/2012.06791) I battle tested this idea for the first time and it seemed to yield satisfactory results.).
-
+As a conclusion, graph neural networks show great potential as a modeling tool for wind farms (and many other fields of engineering).
+Further interesting extensions would include a more careful account of uncertainty and [Bayesian deep neural networks](https://arxiv.org/abs/1506.02557) for learning the interaction functions with the associated uncertainty. (**update:** In [Bayesian graph neural networks for strain-based crack localization](https://arxiv.org/abs/2012.06791) I battle-tested this idea for the first time and it yields satisfactory results.).
 
