@@ -7,7 +7,7 @@ tags: [transformers, NLP, literature navigation, d3.js, visualization, scraping,
 ---
 
 # Literature Clustering for Workshop
-I co-organized some small workshops in my department (Civil and Environmental Engineering) called "[DSML@DBAUG](https://baug.ethz.ch/en/news-and-events/news/2020/10/data-science-and-machine-learning-at-d-baug.html)" where researchers (Ph.D. and Post Docs) from all chairs of the civil and geomatic engineering at ETH shortly presented their work. Since this was happening during the pandemic, everything happened through zoom. In order to be able to interact during the event, "breakout" sessions were scheduled where loosely moderated discussions around pre-defined topics were conducted among small groups. 
+I co-organized some small workshops in my department (Civil and Environmental Engineering) called "[DSML@DBAUG](https://chatzi.ibk.ethz.ch/smm-news/2020/10/dsml.html)" where researchers (Ph.D. and Post Docs) from all chairs of the civil and geomatic engineering at ETH shortly presented their work. Since this was happening during the pandemic, everything happened through zoom. In order to be able to interact during the event, "breakout" sessions were scheduled where loosely moderated discussions around pre-defined topics were conducted among small groups. 
 
 When considering how to split the participants, this presented with an interesting challenge: We would have liked to split the participants according to their interests.
 At the same time, we couldn't easilly find common current research interests among the participants since we are not familiar with all the participants. 
