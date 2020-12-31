@@ -2,8 +2,8 @@
 layout: post
 title: Literature Graph Navigation using Pre-trained Transformers 
 subtitle: 
-bigimg: /img/cables.jpg
-tags: [arduino, reverse engineering, IR protocols, remote control]
+bigimg: /img/authorgraph.png
+tags: [transformers, NLP, literature navigation, d3.js, visualization, scraping, personal]
 ---
 
 # Literature Clustering for Workshop

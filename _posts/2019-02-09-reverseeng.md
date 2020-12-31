@@ -3,7 +3,7 @@ layout: post
 title: Reverse engineering IR protocols without a logic analyzer or an oscilloscope for stereo remote hacking and robot vacuum control
 subtitle: 
 bigimg: /img/cables.jpg
-tags: [arduino, reverse engineering, IR protocols, remote control]
+tags: [arduino, reverse engineering, IR protocols, remote control, signal analysis, eufy]
 ---
 
 # The project(s)

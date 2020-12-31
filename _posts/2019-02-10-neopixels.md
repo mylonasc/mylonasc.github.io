@@ -3,7 +3,7 @@ layout: post
 title: Making and interfacing a Wifi RGB LED matrix (neo-pixel)
 subtitle: 
 bigimg: /img/cables.jpg
-tags: [ESP32, wifi, LED matrix, neopixel, python, ascii art]
+tags: [ESP32, wifi, LED matrix, neopixel, python, ascii art, personal]
 ---
 
 # The magic of Neo-pixels

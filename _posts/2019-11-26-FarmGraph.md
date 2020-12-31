@@ -3,7 +3,7 @@ layout: post
 title: Graph Neural Networks and Wind Farms
 subtitle: Deep Neural Networks with Relational Inductive Biases for Wake Modeling
 bigimg: /img/wakes.jpg
-tags: [wake effects, deep learning, wind farms, Graph Neural Networks]
+tags: [wake effects, deep learning, wind farms, Graph Neural Networks, PhD]
 ---
 # Wake effects
 As discussed in my [other post](https://mylonasc.github.io/2019-01-17-farmVAE/) wake effects is an important consideration when designing windfarms.
