@@ -14,5 +14,5 @@ For a list of my academic projects [click here](https://mylonasc.github.io/tags/
 
 For a list of my personal projects [click here](https://mylonasc.github.io/tags/#personal)
 
-
+[Curriculum Vitae](/cv/cv_4.pdf)
 
