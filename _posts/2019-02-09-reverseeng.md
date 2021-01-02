@@ -110,7 +110,7 @@ Here is a video of the IR controller in action!
 </video>
 
 The end goal of this project is to also localize the vacuum (for instance with some simple [monocular visual SLAM](https://ieeexplore.ieee.org/abstract/document/4160954?casa_token=WPKoEypDsqsAAAAA:vnYg1Cdz_bygWuRt6mp0i2Cr4EZxRHN3vKrsHqujTOKqSkab9LCBJqqnzr2Wdi9bEuZLCQPakw)) and control it from the PC. This is normally ported together with more 
-expensive vacuum cleaners but I think it's not difficult to set it up and then open-source. The algorithm should work offline from the PC initially since I can stream the frames of the ESP-mounted camera.
+expensive vacuum cleaners but I think it's not difficult to implement. The algorithm should work offline from the PC initially since I can stream the frames of the ESP-mounted camera.
 Other ways I thought about for localizing the vacuum were audio, floor vibrations and by checking the signal strength of surrounding [WIFI access points](https://dl.acm.org/doi/abs/10.1145/1873951.1874078). For the audio approach I would probably I would need 2-3 mics around the house and some training (the vacuum is noisy so it is audible from the whole house and imperceptible sound distortions due to the layout should help with localization.)
 
 
