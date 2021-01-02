@@ -9,7 +9,7 @@ tags: [ESP32, wifi, LED matrix, neopixel, python, ascii art, personal]
 # The magic of Neo-pixels
 After writing this title, I realized there is a post from [Adafruit](https://learn.adafruit.com/adafruit-neopixel-uberguide?view=all) with the same title. And that is for a good reason in my opinion! 
 
-Neo-pixels are not just a strip of LEDs in series! They are individually addressable through a single data wire and this makes them very special in terms of what you can do with them! Each one of the LEDs has an intergrated circuit (called **WS2812**).  I really suggest [this part](https://learn.adafruit.com/adafruit-neopixel-uberguide?view=all#writing-your-own-library-16-13) again from adafruit if you are interested! 
+Neo-pixels are not just a strip of LEDs in series! They are individually addressable through a single data wire and this makes them very special in terms of what you can do with them! Each one of the LEDs has an integrated circuit (called **WS2812**).  I really suggest [this part](https://learn.adafruit.com/adafruit-neopixel-uberguide?view=all#writing-your-own-library-16-13) again from adafruit if you are interested! 
 
 Bottom line is that there are 3 bytes of data for each RGB LED, each one representing how much of each R/G/B is going to be in each LED. 1 byte is an integer from 1 to 255 and this is your resolution for each color as well. So the awesome thing is the whole strip operates like a huge shift register!
 
@@ -17,23 +17,22 @@ The way that the system works is very simple: after you have fed a new value to 
 
 
 # Construction/inspiration
-I was mostly inspired (and educated about the project) by [Great Scott](https://www.youtube.com/watch?v=D_QBlFIQk-o) that did the same with an arduino. I used directly an ESP32 because I wanted to be able to refresh the thingy wirelessly. I aslo have a single arduino and I wanted this to be a permanent installation in my room.
+I was mostly inspired (and educated about the project) by [Great Scott](https://www.youtube.com/watch?v=D_QBlFIQk-o) that did the same with an arduino. I used directly an ESP32 because I wanted to be able to refresh the screen wirelessly. I also have a single arduino for experimentation and I wanted this to be a permanent installation in my room.
 
 ## Components
-
-* The LED strip of course 
-* a beefy power supply (mine is 4 amps!). The LEDs draw quite some current when they are lit.
-* beach wood for support
-* a thick while acrylic sheet (I found that on the street actually - that was nice since it's not very cheap!)
-* carton (that is to separate the LEDs so they have a "pixel-like" definition. 
+* The LED strip (ordered from Ali-express)
+* a strong power supply (4 amps). The LEDs draw quite some current when they are fully lit.
+* Beach wood for support
+* a thick while acrylic sheet (I found that on the street actually - that was nice since it's not cheap!)
+* carton (that is to separate the LEDs so they have a "pixel-like" definition when lit. 
 * ESP32 to control the LEDs and interface with Wifi.
 
 ### Tips:
-you might have to put some supply in parallel - the LEDs have quite some resistance and leds closer to the end of long chains may end up with lower current and innacurate/faded colors.
+you might have to put some supply in parallel - the LEDs have quite some resistance and LEDs closer to the end of long chains may end up with lower current and inaccurate/faded colors. Maybe have a look at [this video](https://youtu.be/Ew0HmLy_Td8?t=417) to better understand what I'm talking about.
 
 In my [github repo]( https://github.com/mylonasc/esp32wirelessledmatrix) you can find a version of the code I used plus a python script I made to control it.
 
-The way the remote control works, is that I send REST requests containing serially encoded in the text the values for all the LEDs. If you think what I should have done to do this first it will be easier to read my code! In any case, drop me an email at mylonas.charilaos@gmail.com in case you are interested in adapting it - I'd be happy to help!
+The way the remote control works, is that I send REST requests containing serially encoded in the text the values for all the LEDs. If you think what I should have done to do this first it will be easier to read my code. In any case, drop me an email at mylonas.charilaos@gmail.com in case you are interested in adapting it - I'd be happy to help!
 
 Here are some fotos of the construction. I had to clamp the board to sth so I can saw it:
 ![construction 1 ](/img/construction1.jpg)
@@ -45,7 +44,7 @@ The matrix after I have split the strip, glued it to the wood and before I solde
 Constructing the frame:
 ![construction 3 ](/img/construction4.jpg)
 
-A video of the matrix running a default script with an arduino before I constructed the the carton grid to give it the pixel look:
+A video of the matrix running a default script with an arduino before I constructed the carton grid to give it the pixel look:
 
 <video width="720" height="480" controls="controls">
   <source src="/img/video_led_matrix.mp4" type="video/mp4">
@@ -53,10 +52,10 @@ A video of the matrix running a default script with an arduino before I construc
 
 
 
-Finally I made a short python script that translates ascii art to color data for the matrix! Here is an example:
+Finally, I made a short python script that translates ASCII art to color data for the matrix! Here is an example:
 ![a smiley face](/img/smiley.jpg)
 
-In the github code upload you will also find the ascii codes for that!
+In the github code upload you will also find the ASCII codes for that.
 
 H.
 
