@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Charilaos Mylonas
-subtitle: Phd student and Computational Scientist
+subtitle: Ph.D. Student and Computational Scientist
 ---
 
 Welcome to my personal webpage. I am Charilaos (Harry) Mylonas, and I am a Phd candidate on the topic of Machine Learning & Uncertainty Quantification
