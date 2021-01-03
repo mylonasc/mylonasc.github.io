@@ -8,9 +8,9 @@ Welcome to my personal webpage. I am Charilaos (Harry) Mylonas, and I am a Phd c
  for Remaining Useful Life Predictions on Wind Energy. 
 I use large-scale simulations and machine learning techniques to gain insight and quantitatively model structural and operational quantities of interest in wind turbines and wind farms.
 
-My research is on deep generative models (in particular VAEs & normalizing flows), graph machine learning (GraphNets) and combinations thereof.
+My research is on deep generative models (in particular VAEs & normalizing flows), graph machine learning (Graph Networks) and combinations thereof.
 My application domains of interest are scientific computing, structural condition monitoring and remaining life assessment.
-I am also interested on the prospects of AI on healthcare and solving real-world engineering and societal problems in general.
+I am also in applications of AI in healthcare, solving engineering and societal problems in general.
 
 My hobbies include guitar playing, electronics/microcontrolers and digital art.
 
