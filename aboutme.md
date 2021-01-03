@@ -10,7 +10,7 @@ I use large-scale simulations and machine learning techniques to gain insight an
 
 My research is on deep generative models (in particular VAEs & normalizing flows), graph machine learning (Graph Networks) and combinations thereof.
 My application domains of interest are scientific computing, structural condition monitoring and remaining life assessment.
-I am also in applications of AI in healthcare, solving engineering and societal problems in general.
+I am also interested in applications of AI in healthcare, solving engineering and societal problems in general.
 
 My hobbies include guitar playing, electronics/microcontrolers and digital art.
 
