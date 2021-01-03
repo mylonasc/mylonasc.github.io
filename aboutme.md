@@ -18,6 +18,6 @@ For a list of posts on some of my academic works [click here](https://mylonasc.g
 
 For a list of posts on some of my personal projects [click here](https://mylonasc.github.io/tags/#personal)
 
-[Curriculum Vitae](/cv/cv_4.pdf) 
+[Curriculum Vitae](/cv/MylonasCharilaos_Jan21.pdf) 
 
 [Google scholar](https://scholar.google.com/citations?user=W7giwJEAAAAJ&hl=en)
