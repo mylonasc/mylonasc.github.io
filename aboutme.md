@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Charilaos Mylonas
-subtitle: Ph.D. Student and Computational Scientist
+subtitle: Ph.D. Candidate and Computational Scientist
 ---
 
-Welcome to my personal webpage. I am Charilaos (Harry) Mylonas, and I am a Phd candidate on the topic of Machine Learning & Uncertainty Quantification
+Welcome to my personal webpage. I am Charilaos (Harry) Mylonas, and I am a Ph.D. candidate on the topic of Machine Learning & Uncertainty Quantification
  for Remaining Useful Life Predictions on Wind Energy. 
 I use large-scale simulations and machine learning techniques to gain insight and quantitatively model structural and operational quantities of interest in wind turbines and wind farms.
 
