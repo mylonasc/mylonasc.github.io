@@ -5,7 +5,7 @@ subtitle: Ph.D. Candidate and Computational Scientist
 ---
 
 Welcome to my personal webpage. I am Charilaos (Harry) Mylonas, and I am a Ph.D. candidate on the topic of Machine Learning & Uncertainty Quantification
- for Remaining Useful Life Predictions on Wind Energy. 
+ for Remaining Useful Life Predictions in Wind Energy. 
 I use large-scale simulations and machine learning techniques to gain insight and quantitatively model structural and operational quantities of interest in wind turbines and wind farms.
 
 My research is on deep generative models (in particular VAEs & normalizing flows), graph machine learning (Graph Networks) and combinations thereof.
