@@ -44,9 +44,8 @@ Some results from these graphs are shown in the following:
 ![social related cluster](/img/social_political_papers.png)
 
 Note that there are some results from web-scraping that were not correct, but this did not seem to degrade the results a lot. On the contrary, some sociological references, for instance, seem to be more connected validating that BERT does capture some semantic similarities between the respective abstracts.
-Here is a [live version](https://galerkin.hopto.org/authors_visualization/) of the GUI running on my raspbery pi (everything is pre-computed).
+Here is a [live version](https://galerkin.hopto.org/authors_visualization/) of the GUI running on my raspberypi (everything is pre-computed).
 
-**Since this is self-hosted and my signed credentials have expired - you will get a "this website is not safe" window bellow. If you trust me ignore it! **
 
 <iframe src="https://galerkin.hopto.org/authors_visualization/" width="800" height="640" allowfullscreen="allowfullscreen"></iframe>
 
