@@ -114,6 +114,9 @@ expensive vacuum cleaners but I think it's not difficult to implement. The algor
 Other ways I thought about for localizing the vacuum were audio, floor vibrations and by checking the signal strength of surrounding [WIFI access points](https://dl.acm.org/doi/abs/10.1145/1873951.1874078). For the audio approach I would probably I would need 2-3 mics around the house and some training (the vacuum is noisy so it is audible from the whole house and imperceptible sound distortions due to the layout should help with localization.)
 
 
+<h3></h3><!-- Start BawkBox Code--><script data-sil-id="603557503c0d090013685d73">var loadWidget = function() { var d = document, w = window, l = window.location,p = l.protocol == "file:" ? "http://" : "//"; if (!w.WS) w.WS = {}; c = w.WS; var m=function(t, o){ var e = d.getElementsByTagName("script"); e=e[e.length-1]; var n = d.createElement(t); if (t=="script") {n.async=true;} for (k in o) n[k] = o[k]; e.parentNode.insertBefore(n, e)}; m("script", { src: p + "bawkbox.com/widget/like-dislike/603557503c0d090013685d73?page=" +encodeURIComponent(l+''), type: 'text/javascript' }); c.load_net = m; }; if(window.Squarespace){ document.addEventListener('DOMContentLoaded', loadWidget); setTimeOut(function(){ document.addEventListener('DOMContentLoaded', loadWidget); }, 3000) } else { loadWidget() } </script><div class="sil-widget-like-dislike sil-widget" id="sil-widget-603557503c0d090013685d73"><a href="//bawkbox.com/install/like-dislike">Like Dislike Button</a></div><!-- End BawkBox Code-->
+
+
 
 
 [//]: # " # Variational Autoencoders"
