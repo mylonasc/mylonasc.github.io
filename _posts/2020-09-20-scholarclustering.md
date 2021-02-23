@@ -53,4 +53,9 @@ Here is a [live version](https://galerkin.hopto.org/authors_visualization/) of t
 We ended up not using this for splitting the participants of the workshops it was a fun project which I may continue in the future. I used a python library called [scholarly](https://pypi.org/project/scholarly/) which had some limmitations and some requests were wasted and I may have wrote more code than if I just wrote the scraper in [Selenium](https://selenium-python.readthedocs.io/).
 
 Hope you enjoyed reading about this project as I enjoyed making it!
-
+# Comments
+<!-- begin wwww.htmlcommentbox.com -->
+ <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24sZA7436Rb7byb4T87MF0r."+"&opts=16862&num=10&ts=1614107205273");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end www.htmlcommentbox.com -->
