@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Charilaos Mylonas
-subtitle: Ph.D. Candidate and Computational Scientist
+subtitle: PhD Candidate and Computational Scientist
 ---
 
 
@@ -14,7 +14,7 @@ My hobbies include guitar playing, electronics/microcontrollers, and digital art
 For a list of posts on some of my academic works,[click here](https://mylonasc.github.io/tags/#PhD)
 For a list of posts on some of my personal projects, [click here](https://mylonasc.github.io/tags/#personal)
 
-[CV](/cv/MylonasCharilaos_Feb21.pdf) 
+[CV](/cv/MylonasCharilaos_June21.pdf) 
 
 [Google scholar](https://scholar.google.com/citations?user=W7giwJEAAAAJ&hl=en)
 
