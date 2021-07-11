@@ -9,7 +9,7 @@ I am a [computational scientist](https://ethz.ch/en/studies/master/degree-progra
 
 I am currently doing my PhD on Machine Learning & Uncertainty Quantification for Remaining Useful Life Predictions in Wind Energy. I employ and extend machine learning to make the best out of large-scale simulations and historical monitoring data for wind turbines and wind farms.
 
-In my research, I use graph machine learning (Graph Neural Networks - in particular, the message-passing variants) and probabilistic deep learning \[ [1](https://arxiv.org/abs/2106.16049)  [2](https://arxiv.org/abs/2012.06791) \]
+My current research interests are Graph Neural Networks and probabilistic deep learning \[[1](https://arxiv.org/abs/2106.16049),  [2](https://arxiv.org/abs/2012.06791)\]
 
 My hobbies include electronics/microcontrollers and digital art.
 
