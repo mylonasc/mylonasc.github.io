@@ -13,9 +13,9 @@ My current research interests are Graph Neural Networks and probabilistic deep l
 
 My hobbies include electronics/microcontrollers and digital art.
 
-For a list of posts on some of my academic works,[click here](https://mylonasc.github.io/tags/#PhD)
+For a list of posts on some of my academic works [click here](https://mylonasc.github.io/tags/#PhD)
 
-For a list of posts on some of my personal projects, [click here](https://mylonasc.github.io/tags/#personal)
+For a list of posts on some of my personal projects [click here](https://mylonasc.github.io/tags/#personal)
 
 [CV](/cv/MylonasCharilaos_June21.pdf)
 
