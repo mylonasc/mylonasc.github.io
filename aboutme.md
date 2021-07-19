@@ -1,23 +1,22 @@
 ---
 layout: page
 title: Charilaos Mylonas
-subtitle: Ph.D. Student and Computational Scientist
+subtitle: PhD Candidate and Computational Scientist
 ---
 
-Welcome to my personal webpage. I am Charilaos (Harry) Mylonas, and I am a Phd candidate on the topic of Machine Learning & Uncertainty Quantification
- for Remaining Useful Life Predictions on Wind Energy. 
-I use large-scale simulations and machine learning techniques to gain insight and quantitatively model structural and operational quantities of interest in wind turbines and wind farms.
 
-My research is on deep generative models (in particular VAEs & normalizing flows), graph machine learning (GraphNets) and combinations thereof.
-My application domains of interest are scientific computing, structural condition monitoring and remaining life assessment.
-I am also interested on the prospects of AI on healthcare and solving real-world engineering and societal problems in general.
+I am a [computational scientist](https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computational-science-and-engineering.html), passionate about progressing science and engineering and solving real-world problems with machine learning and scientific computing.
 
-My hobbies include guitar playing, electronics/microcontrolers and digital art.
+I am currently doing my PhD on Machine Learning & Uncertainty Quantification for Remaining Useful Life Predictions in Wind Energy. I employ and extend machine learning to make the best out of large-scale simulations and historical monitoring data for wind turbines and wind farms.
+
+My current research interests are Graph Neural Networks and probabilistic deep learning \[[1](https://arxiv.org/abs/2106.16049),  [2](https://arxiv.org/abs/2012.06791)\]
+
+My hobbies include electronics/microcontrollers and digital art.
 
 For a list of posts on some of my academic works [click here](https://mylonasc.github.io/tags/#PhD)
 
 For a list of posts on some of my personal projects [click here](https://mylonasc.github.io/tags/#personal)
 
-[Curriculum Vitae](/cv/cv_4.pdf) 
+[CV](/cv/MylonasCharilaos_June21.pdf)
 
 [Google scholar](https://scholar.google.com/citations?user=W7giwJEAAAAJ&hl=en)

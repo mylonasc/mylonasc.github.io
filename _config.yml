@@ -14,10 +14,10 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: Personal projects page
+title: Projects page
 
 # Short description of your site
-description: A journal for sharing my hobby and work projects
+description: A journal for my research projects and some personal ones
 
 # --- Navigation bar options --- #
 
@@ -27,7 +27,7 @@ navbar-links:
   Resources:
     - LinkedIn: "https://www.linkedin.com/in/charilaos-mylonas-54691948/"
     - Google Scholar: "https://scholar.google.com/citations?user=W7giwJEAAAAJ&hl=en"
-  CV: "/cv/cv_4.pdf"
+  CV: "cv/MylonasCharilaos_June21.pdf"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
@@ -82,7 +82,6 @@ social-network-links:
 #  instagram: deanat78
 #  youtube: user/deanat78
 #  spotify: yourname
-  telephone: +41787152686
 #  steam: deanat78
 #  twitch: yourname
 #  yelp: yourname
