@@ -3,7 +3,7 @@ layout: page
 title: Charilaos Mylonas
 subtitle: PhD Candidate and Computational Scientist
 ---
-
+**For my professional/academic website please go**[here](http://mylonasc.xyz)
 
 I am a [computational scientist](https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/computational-science-and-engineering.html), passionate about progressing science and engineering and solving real-world problems with machine learning and scientific computing.
 
