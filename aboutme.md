@@ -3,7 +3,7 @@ layout: page
 title: Charilaos Mylonas
 subtitle: PhD Candidate and Computational Scientist
 ---
-**For my professional/academic website please **[go here](http://mylonasc.xyz)
+**For my professional/academic website please**[ go here](http://mylonasc.xyz)
 
 My hobbies include electronics/microcontrollers and digital art. In my github pages you will mainly find scattered posts about my personal projects.
 
