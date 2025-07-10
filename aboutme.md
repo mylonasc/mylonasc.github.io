@@ -1,16 +1,15 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: Charilaos Mylonas
+subtitle:
 ---
+**For my professional/academic website please**[ go here](http://mylonasc.netlify.app)
 
-My name is Inigo Montoya. I have the following qualities:
+My hobbies include electronics/microcontrollers and digital art. In my github pages you will mainly find scattered posts about my personal projects.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+For a list of posts on some of my academic works [click here](https://mylonasc.github.io/tags/#PhD)
 
-What else do you need?
+For a list of posts on some of my personal projects [click here](https://mylonasc.github.io/tags/#personal)
 
-### My story
+[Google scholar](https://scholar.google.com/citations?user=W7giwJEAAAAJ&hl=en)
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
