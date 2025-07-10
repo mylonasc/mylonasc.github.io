@@ -12,3 +12,4 @@ For a list of posts on some of my academic works [click here](https://mylonasc.g
 For a list of posts on some of my personal projects [click here](https://mylonasc.github.io/tags/#personal)
 
 [Google scholar](https://scholar.google.com/citations?user=W7giwJEAAAAJ&hl=en)
+
